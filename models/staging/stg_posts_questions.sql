@@ -9,5 +9,5 @@ select
     owner_user_id,
     parent_id,
     tags
-from {{ source("stackoverflow", "posts_questions") }}
+from {{ source("raw", "posts_questions") }}
 where creation_date >= timestamp("2022-12-01")
