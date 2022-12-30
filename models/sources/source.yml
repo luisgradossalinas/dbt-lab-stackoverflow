@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: stackoverflow
+    schema: stackoverflow
+    tables:
+      - name: badges
+      - name: posts_answers
+      - name: posts_questions
+      - name: users

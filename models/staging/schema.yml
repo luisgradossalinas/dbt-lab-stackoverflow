@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: stg_badges
+    columns:
+      - name: user_id
+        tests:
+          - unique
+          - not_null
+  - name: stg_posts_answers
+    columns:
+      - name: post_id
+        tests:
+          - unique
+          - not_null
+      - name: type
+        tests:
+          - accepted_values:
+              values: ['answer']
+      - name: owner_user_id
+        tests:
+          - relationships:
+              to: ref('stg_users')
+              field: user_id
+  - name: stg_posts_questions
+    columns:
+      - name: post_id
+        tests:
+          - unique
+          - not_null
+  - name: stg_users
+    columns:
+      - name: website_url
+        tests:
+          - not_null
