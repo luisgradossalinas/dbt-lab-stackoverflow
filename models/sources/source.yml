@@ -1,8 +1,8 @@
 version: 2
 
 sources:
-  - name: stackoverflow
-    schema: stackoverflow
+  - name: raw
+    schema: stackoverflow #Name dataset
     tables:
       - name: badges
       - name: posts_answers
