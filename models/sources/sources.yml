@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: raw
-    schema: stackoverflow #Dataset name
+    schema: stackoverflow #Dataset name - BigQuery
     tables:
       - name: badges
       - name: posts_answers
