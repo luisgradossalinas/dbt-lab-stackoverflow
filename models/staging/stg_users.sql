@@ -1,3 +1,5 @@
+{{ config(materialized="incremental") }}
+
 with
     source as (
         select
@@ -11,4 +13,9 @@ with
         from {{ source("raw", "users") }}
     )
 
-select * from source
+select *
+from source
+{% if is_incremental() %}
+-- this filter will only be applied on an incremental run
+where creation_date > (select max(creation_date) from {{ this }})
+{% endif %}
