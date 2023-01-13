@@ -10,4 +10,4 @@ select
     parent_id,
     tags
 from {{ source("raw", "posts_questions") }}
-where creation_date >= timestamp("2022-12-01")
+where creation_date >= timestamp("2023-01-31")
