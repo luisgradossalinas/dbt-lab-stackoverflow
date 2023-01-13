@@ -5,9 +5,6 @@ select
     round(avg(answer_count), 3) as avg_answers
 from {{ ref("stg_posts_questions") }}
 where
-    created_at < (
-        select timestamp_sub(max(created_at), interval 24 * 90 hour)
-        from {{ ref("stg_posts_questions") }}
-    )
+    created_at < (select max(created_at) from {{ ref("stg_posts_questions") }})
 group by 1, 2
 order by 1, 2
